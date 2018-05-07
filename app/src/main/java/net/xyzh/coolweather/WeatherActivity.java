@@ -1,5 +1,6 @@
 package net.xyzh.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -22,6 +23,7 @@ import com.bumptech.glide.Glide;
 
 import net.xyzh.coolweather.gson.Forecast;
 import net.xyzh.coolweather.gson.Weather;
+import net.xyzh.coolweather.service.AutoUpdateService;
 import net.xyzh.coolweather.util.HttpUtil;
 import net.xyzh.coolweather.util.Utility;
 
@@ -246,5 +248,8 @@ public class WeatherActivity extends AppCompatActivity {
         sportText.setText(sport);
 
         weatherLayout.setVisibility(View.VISIBLE);
+
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startActivity(intent);
     }
 }
